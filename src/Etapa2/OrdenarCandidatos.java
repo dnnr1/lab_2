@@ -8,7 +8,7 @@ public class OrdenarCandidatos {
     public static Candidato[] ordenaCandidatosPorNome(Candidato[] candidatos) {
         if (candidatos == null) return new Candidato[0];
         Candidato[] copia = candidatos.clone();
-        Arrays.sort(copia, Comparator.comparing(Candidato::getNome).thenComparing(Candidato::getPartido));
+        Arrays.sort(copia, Comparator.comparing(Candidato::getNome));
         return copia;
     }
 
@@ -22,7 +22,7 @@ public class OrdenarCandidatos {
     public static Candidato[] ordenaCandidatosPorPartido(Candidato[] candidatos) {
         if (candidatos == null) return new Candidato[0];
         Candidato[] copia = candidatos.clone();
-        Arrays.sort(copia, Comparator.comparing(Candidato::getPartido).thenComparing(Candidato::getNome));
+        Arrays.sort(copia, Comparator.comparing(Candidato::getPartido));
         return copia;
     }
 

@@ -40,6 +40,6 @@ public class Candidato {
 
     @Override
     public String toString() {
-        return String.format("%s (%s) - %d votos", nome, partido, intencoesVotos);
+        return String.format("%-20s %-15s %d", nome, partido, intencoesVotos);
     }
 }

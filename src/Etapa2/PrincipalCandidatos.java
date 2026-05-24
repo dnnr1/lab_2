@@ -16,6 +16,10 @@ public class PrincipalCandidatos {
     private static final List<String> PARTIDOS_PADRAO = Arrays.asList(
             "PL", "PMDB", "PSB", "PSDB", "PSD", "PT"
     );
+    private static final String SEPARATOR = "===========================================================================";
+    private static final int COL_NOME = 20;
+    private static final int COL_PARTIDO = 15;
+    private static final int COL_PREFIXO = 19;
 
     public static void main(String[] args) {
         List<String> nomes = carregarLista("Etapa2/nomes.txt", "nomes.txt", NOMES_PADRAO);
@@ -33,25 +37,12 @@ public class PrincipalCandidatos {
         }
 
         Candidato[] porNome = OrdenarCandidatos.ordenaCandidatosPorNome(candidatos);
-        Candidato[] porVotos = OrdenarCandidatos.ordenaCandidatosPorVotos(candidatos);
-        Candidato[] porPartido = OrdenarCandidatos.ordenaCandidatosPorPartido(candidatos);
-
-        System.out.println("== Ordenados por nome ==");
-        for (Candidato c : porNome) System.out.println(c);
-
-        System.out.println("\n== Ordenados por votos ==");
-        for (Candidato c : porVotos) System.out.println(c);
-
-        System.out.println("\n== Ordenados por partido ==");
-        for (Candidato c : porPartido) System.out.println(c);
+        OrdenarCandidatos.ordenaCandidatosPorVotos(candidatos);
+        OrdenarCandidatos.ordenaCandidatosPorPartido(candidatos);
 
         String nomeBusca = escolherNomeBusca(porNome, nomes, random);
         int idx = OrdenarCandidatos.pesquisaBinariaCandidatos(porNome, nomeBusca);
-        if (idx >= 0) {
-            System.out.println("\nPesquisa binaria encontrou: " + porNome[idx]);
-        } else {
-            System.out.println("\nPesquisa binaria nao encontrou: " + nomeBusca);
-        }
+        imprimirRelatorio(porNome, idx, nomeBusca);
     }
 
     private static List<String> carregarLista(String caminhoPreferencial, String caminhoAlternativo, List<String> fallback) {
@@ -86,5 +77,39 @@ public class PrincipalCandidatos {
             return porNome[random.nextInt(porNome.length)].getNome();
         }
         return nomes.get(random.nextInt(nomes.size()));
+    }
+
+    private static void imprimirRelatorio(Candidato[] porNome, int idxBusca, String nomeBusca) {
+        System.out.println(SEPARATOR);
+        System.out.println("         RELATÓRIO DE VOTAÇÃO");
+        System.out.println(SEPARATOR);
+        System.out.printf("%-" + COL_NOME + "s %-" + COL_PARTIDO + "s %s%n",
+            "Nome", "Partido", "Intenções de Votos");
+        System.out.println(SEPARATOR);
+        System.out.println("Candidatos ordenados por nome:");
+        for (Candidato c : porNome) {
+            System.out.println(formatarLinha(c));
+        }
+        System.out.println(SEPARATOR);
+        if (porNome.length > 0) {
+            System.out.println(formatarResumo("Primeiro candidato:", porNome[0]));
+            System.out.println(formatarResumo("Último candidato:", porNome[porNome.length - 1]));
+        }
+        if (idxBusca >= 0 && idxBusca < porNome.length) {
+            System.out.printf("[OK] Candidato encontrado na posição %2d: %s%n",
+                    idxBusca, formatarLinha(porNome[idxBusca]));
+        } else {
+            System.out.println("[NOK] Candidato não encontrado: " + nomeBusca);
+        }
+    }
+
+    private static String formatarLinha(Candidato candidato) {
+        return String.format("%-" + COL_NOME + "s %-" + COL_PARTIDO + "s %d",
+            candidato.getNome(), candidato.getPartido(), candidato.getIntencoesVotos());
+    }
+
+    private static String formatarResumo(String prefixo, Candidato candidato) {
+        return String.format("%-" + COL_PREFIXO + "s %-" + COL_NOME + "s %-" + COL_PARTIDO + "s %d",
+            prefixo, candidato.getNome(), candidato.getPartido(), candidato.getIntencoesVotos());
     }
 }
