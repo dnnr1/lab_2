@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Documentação do Projeto - Pesquisa e Ordenação</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Mermaid JS -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .uml-container {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .uml-header {
+            color: #343a40;
+            font-weight: bold;
+        }
+
+        .uml-diagram {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 10px;
+            overflow-x: auto;
+        }
+
+        header, footer {
+            background-color: #034ea2; 
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        #logo-container {
+            width: 200px;
+            height: 180px;
+            background-image: url('logo_instituicao.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin: 0 auto;
+        }
+
+        p, ul, li {
+            text-align: justify;
+        }
+
+        .highlight {
+            color: #169179; /* Cor verde para destaque */
+            font-weight: bold;
+        }
+
+        /* Estilos do Console */
+        .console-container {
+            background-color: #1e1e1e;
+            color: #33ff33;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            white-space: pre; /* mantém a formatação de espaçamento e quebra de linha */
+        }
+
+        .console-header {
+            background-color: #0d0d0d;
+            padding: 10px;
+            border-radius: 5px 5px 0 0;
+            color: #fff;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .console-body {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border-radius: 0 0 5px 5px;
+        }
+
+        .command {
+            color: #33ff33;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="logo-container"></div>
+    </header>
+    
+    <div class="container mt-4">
+        <h2 class="text-center mb-4">Documentação do Projeto - Pesquisa e Ordenação</h2>
+
+        <div class="uml-container">
+            <h3 class="uml-header">Etapa 2 | Pesquisa e Ordenação</h3>
+            <p>Na segunda etapa, exercitaremos os métodos de Pesquisa e Ordenação, utilizando os métodos estudados para realizar uma ordenação de uma classe criada por você. Para este desafio, é imprescindível o <strong>entendimento da função da estabilidade de algoritmos de ordenação</strong>.</p>
+            
+            <h5 class="uml-header">Passos a Seguir:</h5>
+            <ul>
+                <li><b>Crie uma classe <span class="highlight">Candidato</span>:</b></li>
+                <ul>
+                    <li>Possui um atributo <span class="highlight">nome</span> (nome completo do candidato)</li>
+                    <li>Um atributo <span class="highlight">partido</span> (<span class="highlight">String</span>)</li>
+                    <li>Um inteiro chamado <span class="highlight">intencoesVotos</span>, representando a quantidade de intenções de voto obtidas na pesquisa</li>
+                    <li>Crie os métodos de acesso dos atributos (getters e setters)</li>
+                    <li>Crie um construtor que recebe informações para inicializar todos os atributos</li>
+                    <li>Crie também o método <span class="highlight">toString()</span> para formatar a saída de forma organizada</li>
+                </ul>
+                
+                <li><b>Crie uma classe chamada <span class="highlight">PrincipalCandidatos</span>:</b></li>
+                <ul>
+                    <li>Contém o método <span class="highlight">main</span></li>
+                    <li>No <span class="highlight">main</span>, crie um <span class="highlight">array</span> de <span class="highlight">Candidato</span> de tamanho aleatório entre 1 e 100</li>
+                    <li>Preencha este array com objetos do tipo <span class="highlight">Candidato</span>, com informações geradas aleatoriamente</li>
+                    <li>É importante que possa haver candidatos com o mesmo nome e diferentes candidatos do mesmo partido</li>
+                </ul>
+                
+                <li><b>Classe <span class="highlight">OrdenarCandidatos</span>:</b></li>
+                <ul>
+                    <li>Implemente métodos para ordenar os candidatos:</li>
+                    <ul>
+                        <li><span class="highlight">ordenaCandidatosPorNome</span></li>
+                        <li><span class="highlight">ordenaCandidatosPorVotos</span></li>
+                        <li><span class="highlight">ordenaCandidatosPorPartido</span></li>
+                    </ul>
+                    <li>Esses métodos devem ordenar um array de <span class="highlight">Candidato</span> baseado em diferentes critérios</li>
+                </ul>
+                
+                <li><b>Pesquisa Binária:</b></li>
+                <ul>
+                    <li>Na classe <span class="highlight">OrdenarCandidatos</span>, crie um método estático chamado <span class="highlight">pesquisaBinariaCandidatos</span></li>
+                    <li>Esse método deve pesquisar um <span class="highlight">Candidato</span> pelo nome no array já ordenado</li>
+                </ul>
+                
+                <li><b>Teste do Método de Pesquisa:</b></li>
+                <ul>
+                    <li>Teste o método com o array ordenado pelo seu método de ordenação</li>
+                    <li>Imprima as informações do <span class="highlight">Candidato</span> que possui o nome informado pelo usuário, usando o método <span class="highlight">pesquisaBinariaCandidatos</span></li>
+                </ul>
+            </ul>
+        </div>
+
+        <div class="uml-container">
+            <h4 class="uml-header">Diagrama de Classes</h4>
+            <div class="uml-diagram">
+                <div class="mermaid">
+                    classDiagram
+                    class Candidato {
+                        -String nome
+                        -String partido
+                        -int intencoesVotos
+                        +Candidato(String, String, int)
+                        +String getNome()
+                        +void setNome(String)
+                        +String getPartido()
+                        +void setPartido(String)
+                        +int getIntencoesVotos()
+                        +void setIntencoesVotos(int)
+                        +String toString()
+                    }
+                    class PrincipalCandidatos {
+                        +static void main(String[])
+                    }
+                    class OrdenarCandidatos {
+                        +static void ordenaCandidatosPorNome(Candidato[])
+                        +static void ordenaCandidatosPorVotos(Candidato[])
+                        +static void ordenaCandidatosPorPartido(Candidato[])
+                        +static int pesquisaBinariaCandidatos(Candidato[], String)
+                    }
+                    PrincipalCandidatos -- Candidato : "associação"
+                    PrincipalCandidatos ..> OrdenarCandidatos : "usa"
+                    OrdenarCandidatos -- Candidato : "ordena e pesquisa"
+                </div>
+            </div>
+        </div>
+
+        <div class="uml-container">
+            <h4 class="uml-header">Diagrama de Sequência - ordenação e pesquisa</h4>
+            <div class="uml-diagram">
+                <div class="mermaid">
+                    sequenceDiagram
+                    participant Usuário
+                    participant PrincipalCandidatos
+                    participant OrdenarCandidatos
+                    participant Candidato
+                    Usuário->>PrincipalCandidatos: main()
+                    PrincipalCandidatos->>PrincipalCandidatos: cria array de Candidatos
+                    PrincipalCandidatos->>Candidato: cria instâncias de Candidato
+                    PrincipalCandidatos->>OrdenarCandidatos: ordenaCandidatosPorPartido()
+                    PrincipalCandidatos->>OrdenarCandidatos: ordenaCandidatosPorVotos()
+                    PrincipalCandidatos->>OrdenarCandidatos: ordenaCandidatosPorNome()
+                    PrincipalCandidatos->>Usuário: solicita nome para pesquisa
+                    Usuário-->>PrincipalCandidatos: informa nome
+                    PrincipalCandidatos->>OrdenarCandidatos: pesquisaBinariaCandidatos(array, nome)
+                    OrdenarCandidatos->>PrincipalCandidatos: retorna posição ou -1
+                    PrincipalCandidatos->>Usuário: exibe resultado da pesquisa
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-center mb-4">Relatório de Votação - Console</h2>
+
+        <div class="console-container">
+            <div class="console-header">
+                    Console
+            </div>
+            <div class="console-body">
+===========================================================================
+         RELATÓRIO DE VOTAÇÃO
+===========================================================================
+Nome                 Partido         Intenções de Votos
+===========================================================================
+Candidatos ordenados por nome:<br>
+Alexandre            PSB             989
+Alexandre            PL              853
+Alexandre            PMDB            737
+Alexandre            PSDB            604
+Alexandre            PSDB            387
+Amanda               PSB             867
+Amanda               PL              576
+Beatriz              PSB             972
+Beatriz              PT              641
+Gabriela             PSB             927
+Gabriela             PSDB            813
+Lucas                PSB             995
+Lucas                PSB             818
+Lucas                PSD             553
+Jorge                PL              966
+Jorge                PMDB            854
+Mariana              PSB             995
+Paulo                PL              943
+Paulo                PT              520
+Rafael               PSD             607
+Rafael               PT              305
+===========================================================================
+Primeiro candidato: Alexandre                      PSB             989
+Último candidato: Rafael                           PT              305
+<span class="command">[OK] Candidato encontrado na posição  5: Amanda    PSB             867</span>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <h6>Universidade do Vale do Rio dos Sinos - UNISINOS | Bischoff, Vinicius</h6>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Documentação do Projeto - Listas Estáticas</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+   
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .uml-container {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .uml-header {
+            color: #343a40;
+            font-weight: bold;
+        }
+
+        .uml-diagram {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 10px;
+            overflow-x: auto;
+        }
+
+        header, footer {
+            background-color: #034ea2; 
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        #logo-container {
+            width: 200px;
+            height: 180px;
+            background-image: url('logo_instituicao.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin: 0 auto;
+        }
+
+        p, ul, li {
+            text-align: justify;
+        }
+
+        .highlight {
+            color: #169179; /* Cor verde para destaque */
+            font-weight: bold;
+        }
+
+        /* Estilos do Console */
+        .console-container {
+            background-color: #1e1e1e;
+            color: #33ff33;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            white-space: pre; /* mantém a formatação de espaçamento e quebra de linha */
+        }
+
+        .console-header {
+            background-color: #0d0d0d;
+            padding: 10px;
+            border-radius: 5px 5px 0 0;
+            color: #fff;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .console-body {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border-radius: 0 0 5px 5px;
+            overflow-x: auto;
+        }
+
+        .command {
+            color: #33ff33;
+        }
+
+        /* Cor verde para saída de exemplo */
+        .output {
+            color: #33ff33;
+        }
+		 /* Cor branca para saída de exemplo */
+        .outputOne {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="logo-container"></div>
+    </header>
+    
+    <div class="container mt-4">
+        <h2 class="text-center mb-4">Documentação do Projeto - Listas Estáticas</h2>
+
+        <div class="uml-container">
+            <h3 class="uml-header">Etapa 3 | Listas Estáticas</h3>
+            <p>Na terceira etapa, o desafio do módulo solicita que você implemente alguns métodos utilizando Estruturas de Dados Estáticas. As duas principais tarefas desta etapa são:</p>
+            <ul>
+                <li><b>Na classe que representa uma lista estática</b> (classe criada em aula), implemente um método <strong>RECURSIVO</strong> que recebe um elemento por parâmetro e retorna a quantidade de vezes que este elemento aparece na lista. Você deve fazer os métodos público e privado. Assinatura do método público:</li>
+                <div class="console-container">
+                    <div class="console-header">
+                        Código
+                    </div>
+                    <div class="console-body">
+public int contaElementos(E el)
+                    </div>
+                </div>
+                <li>Implemente, em uma classe chamada <b>Etapa3</b>, o seguinte método:</li>
+                <div class="console-container">
+                    <div class="console-header">
+                        Código
+                    </div>
+                    <div class="console-body">
+public boolean checkBrackets(Stack<Character> s1)
+                    </div>
+                </div>
+                <li>Esse método verifica se uma expressão matemática tem os parênteses agrupados de forma correta. Os critérios são:</li>
+                <ul>
+                    <li>(1) Se o número de parênteses à esquerda e à direita é igual;</li>
+                    <li>(2) Se todo parêntese aberto é seguido, posteriormente, por um fechamento de parêntese.</li>
+                </ul>
+                <p>Por exemplo, as expressões “<strong>((A+B)</strong>” e “<strong>A+B(</strong>” violam a regra (1), e as expressões “<strong>)A+B(-C</strong>” e “<strong>(A+B))-(C+D</strong>” violam a regra (2).</p>
+                <p>Um exemplo de expressão correta seria: “<strong>((A+B)-(C+D))</strong>”.</p>
+            </ul>
+        </div>
+
+        <div class="uml-container">
+            <h4 class="uml-header">Arquivo de Teste - PrincipalEtapa3.java</h4>
+            <p>Implemente, em uma classe chamada <b>PrincipalEtapa3.java</b> para validar os métodos implementados na <b>StaticList</b> e na <b>StaticStack</b>. Ele inclui dois testes principais:</p>
+            <ul>
+                <li><b>Teste 1:</b> Contagem de elementos em uma lista estática utilizando recursão. Esse teste insere valores em uma lista estática e verifica quantas vezes um elemento específico aparece nela.</li>
+                <li><b>Teste 2:</b> Verificação de agrupamento de parênteses em uma expressão matemática. Esse teste utiliza uma pilha para verificar se a expressão tem seus parênteses agrupados corretamente.</li>
+            </ul>
+            <p>A seguir, uma descrição dos dois testes:</p>
+
+            <div class="console-container">
+                <div class="console-header">
+                    Código - PrincipalEtapa3.java
+                </div>
+                <div class="console-body outputOne">
+<pre>
+<div class="outputOne">
+// Teste 1: Contar elementos em uma lista estática usando recursão
+System.out.println("Teste 1: Contagem de Elementos em uma Lista Estática");
+StaticList<Integer> lista = new StaticList<>(10);
+lista.insert(1, 0);
+lista.insert(2, 1);
+lista.insert(3, 2);
+lista.insert(1, 3);
+lista.insert(2, 4);
+
+int contagem = lista.contaElementos(1);
+System.out.println("O elemento 1 aparece " + contagem + " vezes na lista.");
+System.out.println("---------------------------------------------------");
+
+// Teste 2: Verificação de parênteses agrupados corretamente
+System.out.println("Teste 2: Verificação de Parênteses Agrupados");
+StaticStack<Character> pilha = new StaticStack<>(5);
+pilha.push('(');
+pilha.push('A');
+pilha.push('+');
+pilha.push('B');
+pilha.push(')');
+
+Etapa3 etapa3 = new Etapa3();
+boolean resultado = etapa3.checkBrackets(pilha);
+
+System.out.println("A expressão tem parênteses agrupados corretamente? " + resultado);
+System.out.println("---------------------------------------------------");
+</div>
+</pre>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="uml-container">
+            <h4 class="uml-header">Exemplo de Saída - Teste</h4>
+            <p>Abaixo, um exemplo de saída esperada ao rodar os testes:</p>
+            <div class="console-container">
+                <div class="console-header">
+                    Saída
+                </div>
+                <div class="console-body output">
+===========================================================================
+         RELATÓRIO DE EXECUÇÃO
+===========================================================================
+Teste 1: Contagem de Elementos em uma Lista Estática
+O elemento 1 aparece 2 vezes na lista.
+---------------------------------------------------
+Teste 2: Verificação de Parênteses Agrupados
+A expressão tem parênteses agrupados corretamente? true
+---------------------------------------------------
+                </div>
+            </div>
+        </div>
+
+        <div class="uml-container">
+    <h4 class="uml-header">Diagrama de Classes</h4>
+    <div class="uml-diagram">
+	<div class="mermaid">
+classDiagram
+    class PrincipalEtapa3 {
+        + main(String[])
+    }
+
+    class Lista {
+        + insert(Object, int)
+        + contaElementos(Object) : int
+        + numElements() : int
+        + isEmpty() : boolean
+        + isFull() : boolean
+        + get(int) : Object
+        + remove(int) : Object
+    }
+
+    class StaticList {
+        - elements : Object[]
+        - size : int
+        + StaticList(int)
+        + insert(Object, int)
+        + contaElementos(Object) : int
+        + numElements() : int
+        + isEmpty() : boolean
+        + isFull() : boolean
+        + get(int) : Object
+        + remove(int) : Object
+    }
+
+    class StaticStack {
+        - top : int
+        - elements : Object[]
+        + StaticStack(int)
+        + isEmpty() : boolean
+        + isFull() : boolean
+        + numElements() : int
+        + push(Object)
+        + pop() : Object
+        + top() : Object
+    }
+
+    class OverflowException {
+        + OverflowException()
+    }
+
+    class UnderflowException {
+        + UnderflowException()
+    }
+
+    class Etapa3 {
+        + boolean checkBrackets(Stack)
+    }
+
+    class Stack {
+        + isEmpty() : boolean
+        + isFull() : boolean
+        + numElements() : int
+        + push(Object)
+        + pop() : Object
+        + top() : Object
+    }
+
+    StaticList -- OverflowException
+    StaticList -- UnderflowException
+    StaticStack -- OverflowException
+    StaticStack -- UnderflowException
+    StaticStack <|-- Stack
+    StaticList <|-- Lista
+    PrincipalEtapa3 ..> StaticList
+    PrincipalEtapa3 ..> StaticStack
+    PrincipalEtapa3 ..> Etapa3
+    Etapa3 ..> Stack
+
+</div>
+
+        
+
+    </div>
+</div>
+
+
+        <div class="uml-container">
+            <h4 class="uml-header">Diagrama de Sequência - Verificação de Parênteses</h4>
+            <div class="uml-diagram">
+                <div class="mermaid">
+                    sequenceDiagram
+                    participant Usuário
+                    participant PrincipalEtapa3
+                    participant StaticStack
+                    participant Etapa3
+                    participant Stack
+                    Usuário->>PrincipalEtapa3: Executa main()
+                    PrincipalEtapa3->>StaticStack: Cria pilha de caracteres
+                    PrincipalEtapa3->>StaticStack: Empilha caracteres da expressão
+                    PrincipalEtapa3->>Etapa3: checkBrackets(pilha)
+                    Etapa3->>Stack: Verifica parênteses
+                    Etapa3->>PrincipalEtapa3: Retorna resultado
+                    PrincipalEtapa3->>Usuário: Exibe resultado
+                </div>
+            </div>
+        </div>
+
+    </div>
+	
+	<style>
+        .icon-text {
+            display: flex;
+            align-items: center;
+        }
+        .icon-text i {
+            margin-right: 10px;
+        }
+        .container {
+            margin-top: 20px;
+        }
+    </style>
+	
+	<div class="container">
+    <h2 class="text-center mb-4">Descrição das Classes e Métodos</h2>
+
+    <!-- Classe PrincipalEtapa3 -->
+    <div class="card mb-3">
+        <div class="card-header bg-primary text-white icon-text">
+            <i class="fas fa-code"></i> Classe PrincipalEtapa3
+        </div>
+        <div class="card-body">
+            <p><strong>Descrição:</strong> Classe responsável por executar os testes das classes <code>StaticList</code> e <code>StaticStack</code>, contendo o método <code>main</code>.</p>
+            <p><strong>Método principal (main):</strong></p>
+            <ul>
+                <li>Executa dois testes:</li>
+                <ul>
+                    <li>Contar os elementos dentro de uma lista estática utilizando recursão.</li>
+                    <li>Verificar o agrupamento de parênteses utilizando uma pilha estática.</li>
+                </ul>
+            </ul>
+        </div>
+    </div>
+	
+	<!-- Classe Lista -->
+	<div class="card mb-3">
+		<div class="card-header bg-secondary text-white icon-text">
+			<i class="fas fa-list-alt"></i> Interface Lista&lt;E&gt;
+		</div>
+		<div class="card-body">
+			<p><strong>Descrição:</strong> Interface que define os métodos principais para qualquer implementação de uma lista estática genérica, onde <code>(E)</code> representa o tipo de elementos que a lista pode armazenar.</p>
+			<p><strong>Métodos:</strong></p>
+			<ul>
+				<li><code>insert(E element, int index)</code>: Insere um elemento em uma posição específica da lista.</li>
+				<li><code>contaElementos(E el)</code>: Conta quantas vezes um determinado elemento aparece na lista.</li>
+				<li><code>numElements()</code>: Retorna o número de elementos atualmente na lista.</li>
+				<li><code>isEmpty()</code>: Verifica se a lista está vazia.</li>
+				<li><code>isFull()</code>: Verifica se a lista está cheia.</li>
+				<li><code>get(int index)</code>: Retorna o elemento em uma posição específica da lista.</li>
+				<li><code>remove(int index)</code>: Remove o elemento de uma posição específica e reorganiza os elementos restantes.</li>
+			</ul>
+		</div>
+	</div>
+
+    <!-- Classe StaticList -->
+    <div class="card mb-3">
+        <div class="card-header bg-success text-white icon-text">
+            <i class="fas fa-list"></i> Classe StaticList&lt;E&gt;
+        </div>
+        <div class="card-body">
+            <p><strong>Descrição:</strong> Implementa uma lista estática genérica com tamanho fixo para armazenar elementos de qualquer tipo <code>(E)</code>.</p>
+            <p><strong>Atributos:</strong></p>
+            <ul>
+                <li><code>elements : Object[]</code>: Array utilizado para armazenar os elementos da lista.</li>
+                <li><code>size : int</code>: Número de elementos atualmente presentes na lista.</li>
+            </ul>
+            <p><strong>Métodos:</strong></p>
+            <ul>
+                <li><code>Construtor (StaticList(int maxSize))</code>: Inicializa a lista com um tamanho máximo definido pelo usuário.</li>
+                <li><code>insert(E element, int index)</code>: Insere um elemento em uma posição específica da lista.</li>
+                <li><code>contaElementos(E el)</code>: Conta quantas vezes um determinado elemento aparece na lista utilizando um método recursivo.</li>
+                <li><code>numElements()</code>: Retorna o número de elementos na lista.</li>
+                <li><code>isEmpty()</code>: Verifica se a lista está vazia.</li>
+                <li><code>isFull()</code>: Verifica se a lista está cheia.</li>
+                <li><code>get(int index)</code>: Retorna o elemento em uma posição específica.</li>
+                <li><code>remove(int index)</code>: Remove o elemento de uma posição específica e reorganiza os elementos restantes.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Classe StaticStack -->
+    <div class="card mb-3">
+        <div class="card-header bg-warning text-white icon-text">
+            <i class="fas fa-layer-group"></i> Classe StaticStack&lt;E&gt;
+        </div>
+        <div class="card-body">
+            <p><strong>Descrição:</strong> Implementa uma pilha estática genérica, onde os elementos seguem a regra <i>LIFO</i> (Last In, First Out).</p>
+            <p><strong>Atributos:</strong></p>
+            <ul>
+                <li><code>top : int</code>: Aponta para o topo da pilha (último elemento inserido).</li>
+                <li><code>elements : Object[]</code>: Array utilizado para armazenar os elementos da pilha.</li>
+            </ul>
+            <p><strong>Métodos:</strong></p>
+            <ul>
+                <li><code>Construtor (StaticStack(int maxSize))</code>: Inicializa a pilha com um tamanho máximo definido pelo usuário.</li>
+                <li><code>isEmpty()</code>: Verifica se a pilha está vazia.</li>
+                <li><code>isFull()</code>: Verifica se a pilha está cheia.</li>
+                <li><code>numElements()</code>: Retorna o número de elementos na pilha.</li>
+                <li><code>push(E element)</code>: Adiciona um elemento ao topo da pilha.</li>
+                <li><code>pop()</code>: Remove e retorna o elemento do topo da pilha.</li>
+                <li><code>top()</code>: Retorna o elemento no topo da pilha sem removê-lo.</li>
+                <li><code>toString()</code>: Retorna uma representação em string da pilha.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Classe Etapa3 -->
+    <div class="card mb-3">
+        <div class="card-header bg-info text-white icon-text">
+            <i class="fas fa-check-circle"></i> Classe Etapa3
+        </div>
+        <div class="card-body">
+            <p><strong>Descrição:</strong> Classe que contém o método principal para verificar a correta organização dos parênteses em uma expressão matemática.</p>
+            <p><strong>Método:</strong></p>
+            <ul>
+                <li><code>checkBrackets(Stack&lt;Character&gt; s1)</code>: Recebe uma pilha de caracteres que representam uma expressão matemática e verifica se os parênteses estão agrupados corretamente, respeitando as regras de abertura e fechamento.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Classes de Exceções -->
+    <div class="card mb-3">
+        <div class="card-header bg-danger text-white icon-text">
+            <i class="fas fa-exclamation-triangle"></i> Classes de Exceções
+        </div>
+        <div class="card-body">
+            <p><strong>OverflowException:</strong> Exceção lançada quando uma operação tenta adicionar um elemento a uma pilha ou lista que já está cheia.</p>
+            <p><strong>UnderflowException:</strong> Exceção lançada quando uma operação tenta remover um elemento de uma pilha ou lista que está vazia.</p>
+        </div>
+    </div>
+</div>
+
+    <footer>
+        <h6>Universidade do Vale do Rio dos Sinos - UNISINOS | Bischoff, Vinicius</h6>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+	<script>
+		console.log('Verificando se o Mermaid foi carregado:', typeof mermaid); /
+		mermaid.initialize({ startOnLoad: true });
+	</script>
+
+</body>
+</html>
+

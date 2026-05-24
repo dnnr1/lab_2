@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação do Projeto - Labirinto</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Mermaid JS -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <style>
+        .uml-container {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .uml-header {
+            color: #343a40;
+            font-weight: bold;
+        }
+        .uml-diagram {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 10px;
+            overflow-x: auto;
+        }
+        .code-block {
+			background-color: #f8f9fa;
+			padding: 10px;
+			border: 1px solid #ccc;
+			margin-bottom: 20px;
+			width: 220px;
+			font-family: monospace;
+		}
+		table {
+			border-collapse: collapse;
+			margin: auto;
+		}
+		td {
+			width: 20px;
+			height: 20px;
+			text-align: center;
+			font-weight: bold;
+			border: 1px solid #ccc;
+		}
+		td.path {
+			background-color: #d4edda;
+			color: #28a745; /* Cor verde para o caminho */
+		}
+		td.exit {
+			background-color: #f8d7da;
+			color: #721c24; /* Cor vermelha para a saída D */
+		}
+		td.path-h {
+			color: red; /* Cor vermelha para o # no caminho */
+		}
+        header, footer {
+            background-color: #034ea2; 
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        #logo-container {
+            width: 200px;
+            height: 180px;
+            background-image: url('logo_instituicao.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin: 0 auto;
+        }
+        /* Adição da justificação de texto */
+        p, ul, li {
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="logo-container"></div>
+    </header>
+    <div class="container mt-4">
+        <h2 class="text-center mb-4">Documentação do Projeto - Labirinto</h2>
+
+        <div class="uml-container">
+            <h4 class="uml-header">Etapa 1 | Labirinto</h4>
+            <p>Objetivo da Etapa: Nesta etapa, você deve criar um programa em Java que simule um labirinto. O labirinto será representado por um array bidimensional de caracteres lidos de um arquivo de texto. O objetivo é desenvolver um algoritmo que percorra o labirinto a partir de uma posição inicial fixa, tentando encontrar uma saída.</p>
+
+            <h5 class="uml-header">Passos a Seguir:</h5>
+            <ul>
+                <li><b>Classe <span style="color: #ba372a;">Labirinto</span>:</b></li>
+                <ul>
+                    <li><b>Atributo <span style="color: #ba372a;">PAREDE</span> (constante para parede):</b> 'X'</li>
+                    <li><b>Atributo <span style="color: #ba372a;">CAMINHO_ABERTO</span> (constante para caminho aberto):</b> ' '</li>
+                    <li><b>Atributo <span style="color: #ba372a;">SAIDA</span> (constante para saída):</b> 'D'</li>
+                    <li><b>Atributo <span style="color: #ba372a;">CAMINHO_SOLUCAO</span> (constante para caminho da solução):</b> '#'</li>
+                    <li><b>Atributo <span style="color: #ba372a;">labirinto</span> (array bidimensional de caracteres):</b>
+                        <ul>
+                            <li>Este atributo é responsável por armazenar a estrutura do labirinto.</li>
+                            <li>O labirinto é lido de um arquivo de texto onde:
+                                <ul>
+                                    <li><code>X</code> representa paredes;</li>
+                                    <li><code> </code>(espaço) representa caminhos abertos;</li>
+                                    <li><code>D</code> representa o destino ou a saída.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><b>Método <span style="color: #ba372a;">criaLabirinto(String filename)</span>:</b>
+                        <ul>
+                            <li>Recebe como parâmetro o nome de um arquivo de texto (<code>filename</code>) que contém a estrutura do labirinto.</li>
+                            <li>O método abre o arquivo, lê seu conteúdo e preenche o array bidimensional <code>labirinto</code>.</li>
+                        </ul>
+                    </li>
+                    <li><b>Método <span style="color: #ba372a;">percorreLabirinto()</span>:</b>
+                        <ul>
+                            <li>Inicia a busca pela saída do labirinto, partindo da posição fixa <code>[0][0]</code>.</li>
+                            <li>O método chama uma função privada recursiva (<code>resolverLabirinto(int x, int y)</code>) para tentar encontrar a saída.</li>
+                            <li>Retorna <code>true</code> se encontrar a saída e <code>false</code> caso contrário.</li>
+                        </ul>
+                    </li>
+                    <li><b>Método <span style="color: #ba372a;">imprimeLabirinto()</span>:</b>
+                        <ul>
+                            <li>Imprime o labirinto na tela, mostrando a solução encontrada se houver, destacada por um caminho marcado com <code>#</code>.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <li><b>Arquivo de Texto (<code>labirinto.txt</code>):</b></li>
+                <p>O arquivo deve conter a estrutura do labirinto, onde cada linha representa uma linha do array bidimensional.</p>
+
+				<style>
+    .flex-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        background-color: #f8f9fa;
+        padding: 10px;
+    }
+
+    .code-block {
+        background-color: #f8f9fa;
+        padding: 10px;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+        width: 220px;
+        font-family: monospace;
+    }
+
+    table {
+        border-collapse: collapse;
+        margin: auto;
+    }
+
+    td {
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        font-weight: bold;
+        border: 1px solid #ccc;
+    }
+
+    td.path {
+        background-color: #d4edda;
+        color: #28a745; /* Cor verde para o caminho */
+    }
+
+    td.exit {
+        background-color: #d4edda; /* Fundo verde claro */
+        color: #155724; /* Texto verde escuro para o 'D' */
+    }
+
+    td.path-h {
+        color: red; /* Cor vermelha para o # no caminho */
+    }
+</style>
+
+<div class="flex-container">
+    <div class="code-block">
+        <table>
+            <tbody>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                </tr>
+                <tr>
+                    <td>X</td>
+                    <td>&nbsp;</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                </tr>
+                <tr>
+                    <td>X</td>
+                    <td>&nbsp;</td>
+                    <td>X</td>
+                    <td>&nbsp;</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                </tr>
+                <tr>
+                    <td>X</td>
+                    <td>&nbsp;</td>
+                    <td>X</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>X</td>
+                    <td>X</td>
+                </tr>
+                <tr>
+                    <td>X</td>
+                    <td>&nbsp;</td>
+                    <td>X</td>
+                    <td>&nbsp;</td>
+                    <td>X</td>
+                    <td>&nbsp;</td>
+                    <td>X</td>
+                    <td>X</td>
+                </tr>
+                <tr>
+                    <td>X</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>X</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>X</td>
+                </tr>
+                <tr>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>&nbsp;</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>&nbsp;</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>D</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="code-block">
+        <table>
+            <tbody>
+                <tr>
+                    <td class="path-h">#</td>
+                    <td class="path-h">#</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                </tr>
+                <tr>
+                    <td>X</td>
+                    <td class="path-h">#</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                </tr>
+                <tr>
+                    <td>X</td>
+                    <td class="path-h">#</td>
+                    <td>X</td>
+                    <td class="path">&nbsp;</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                </tr>
+                <tr>
+                    <td>X</td>
+                    <td class="path-h">#</td>
+                    <td>X</td>
+                    <td class="path-h">#</td>
+                    <td class="path-h">#</td>
+                    <td class="path-h">#</td>
+                    <td>X</td>
+                    <td>X</td>
+                </tr>
+                <tr>
+                    <td>X</td>
+                    <td class="path-h">#</td>
+                    <td>X</td>
+                    <td class="path-h">#</td>
+                    <td>X</td>
+                    <td class="path-h">#</td>
+                    <td>X</td>
+                    <td>X</td>
+                </tr>
+                <tr>
+                    <td>X</td>
+                    <td class="path-h">#</td>
+                    <td class="path-h">#</td>
+                    <td class="path-h">#</td>
+                    <td>X</td>
+                    <td class="path-h">#</td>
+                    <td class="path-h">#</td>
+                    <td>X</td>
+                </tr>
+                <tr>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td class="path">&nbsp;</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td class="path-h">#</td>
+                    <td class="path-h">#</td>
+                </tr>
+                <tr>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td class="path">&nbsp;</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td class="exit">D</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+                <li><b>Classe <span style="color: #ba372a;">PrincipalLabirinto</span>:</b></li>
+                <ul>
+                    <li>Esta classe contém o método <code>main</code> que será responsável por:</li>
+                    <ul>
+                        <li>Carregar o labirinto a partir do arquivo de texto.</li>
+                        <li>Exibir o labirinto inicial.</li>
+                        <li>Executar a busca pela saída.</li>
+                        <li>Exibir o labirinto final, mostrando o caminho da solução, se encontrado.</li>
+                    </ul>
+                </ul>
+            </ul>
+            <h4>Considerações Adicionais:</h4>
+            <p>Validador: Utilizem o validador para verificar se o código implementado atende aos requisitos solicitados. Este validador retorna "OK" ou "NOK" para cada verificação. Abaixo estão os 12 elementos que serão validados:</p>
+            <ul>
+                <li>Criação da Classe <span class="highlight">Labirinto</span></li>
+                <li>Atributo <span class="highlight">PAREDE</span>, <span class="highlight">CAMINHO_ABERTO</span>, <span class="highlight">SAIDA</span> e <span class="highlight">CAMINHO_SOLUCAO</span></li>
+                <li>Método <span class="highlight">criaLabirinto(String filename)</span></li>
+                <li>Método <span class="highlight">percorreLabirinto()</span></li>
+                <li>Implementação da Recursão <span class="highlight">resolverLabirinto(int x, int y)</span></li>
+                <li>Tratamento de Exceções <span class="highlight">(try-catch)</span> no Método <span class="highlight">criaLabirinto</span></li>
+                <li>Método <span class="highlight">imprimeLabirinto()</span></li>
+                <li>Verificação da Existência da Classe <span class="highlight">PrincipalLabirinto</span></li>
+                <li>Execução do Método <span class="highlight">main</span> em <span class="highlight">PrincipalLabirinto</span></li>
+                <li>Verificação de Saída <span class="highlight">Solução encontrada</span></li>
+                <li>Verificação da Implementação de Padrões de Código</li>
+                <li>Verificação de Boa Prática</li>
+            </ul>
+        </div>
+
+        <div class="uml-container">
+            <h4 class="uml-header">Diagrama de Classes</h4>
+            <div class="uml-diagram">
+                <div class="mermaid">
+                    classDiagram
+                    Labirinto --> PrincipalLabirinto : "usa"
+                    Labirinto : -char PAREDE
+                    Labirinto : -char CAMINHO_ABERTO
+                    Labirinto : -char SAIDA
+                    Labirinto : -char CAMINHO_SOLUCAO
+                    Labirinto : -char[][] labirinto
+                    Labirinto : +void criaLabirinto(String)
+                    Labirinto : +boolean percorreLabirinto()
+                    Labirinto : +void imprimeLabirinto()
+                    Labirinto : -boolean resolverLabirinto(int, int)
+                    PrincipalLabirinto : +main(String[])
+                </div>
+            </div>
+        </div>
+
+        <div class="uml-container">
+            <h4 class="uml-header">Diagrama de Sequência - percorreLabirinto()</h4>
+            <div class="uml-diagram">
+                <div class="mermaid">
+                    sequenceDiagram
+                    participant PrincipalLabirinto
+                    participant Labirinto
+                    PrincipalLabirinto->>Labirinto: criaLabirinto("labirinto.txt")
+                    PrincipalLabirinto->>Labirinto: percorreLabirinto()
+                    Labirinto->>Labirinto: resolverLabirinto(0, 0)
+                    Labirinto-->>PrincipalLabirinto: Retorna verdadeiro/falso
+                    PrincipalLabirinto->>Labirinto: imprimeLabirinto()
+                    PrincipalLabirinto->>ValidadorEtapa1Estudante: validaClasse("Labirinto")
+                    ValidadorEtapa1Estudante->>Labirinto: validaExecucaoMetodo("percorreLabirinto")
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <h6>Universidade do Vale do Rio dos Sinos - UNISINOS | Marcos Ricardo Kich</h6>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

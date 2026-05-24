@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Documentação do Projeto - Etapa 4</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .uml-container {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .uml-header {
+            color: #343a40;
+            font-weight: bold;
+        }
+
+        .console-container {
+            background-color: #1e1e1e;
+            color: #33ff33;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            white-space: pre;
+        }
+
+        .console-header {
+            background-color: #0d0d0d;
+            padding: 10px;
+            border-radius: 5px 5px 0 0;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .console-body {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border-radius: 0 0 5px 5px;
+            overflow-x: auto;
+        }
+
+        .output {
+            color: #33ff33;
+        }
+
+        header, footer {
+            background-color: #034ea2;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        #logo-container {
+            width: 200px;
+            height: 180px;
+            background-image: url('logo_instituicao.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin: 0 auto;
+        }
+
+        .icon-text {
+            display: flex;
+            align-items: center;
+        }
+
+        .icon-text i {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="logo-container"></div>
+        <h2>Documentação do Projeto - Etapa 4</h2>
+    </header>
+
+    <div class="container mt-4">
+        <div class="uml-container">
+            <h3 class="uml-header">Etapa 4 | Lista Dinâmica</h3>
+            <p>Nesta etapa, você deverá implementar uma pilha e uma fila dinâmicas. Para isso, crie um projeto no Eclipse ou na IDE de sua preferência e coloque suas implementações neste projeto. Utilizando as interfaces <span class="highlight"><strong>Stack</strong></span> e <span class="highlight"><strong>Queue</strong></span>, e a classe <span class="highlight"><strong>Node</strong></span>, faça o que se pede:</p>
+            <ul>
+                <li>A partir da classe <span class="highlight"><strong>Node</strong></span> e da interface <span class="highlight"><strong>Stack</strong></span>, crie uma classe chamada <span class="highlight"><strong>LinkedStack</strong></span>, que implementa <span class="highlight"><strong>Stack</strong></span>, ou seja, é uma pilha encadeada.</li>
+                <li>A partir da classe <span class="highlight"><strong>Node</strong></span> e da interface <span class="highlight"><strong>Queue</strong></span>, crie uma classe chamada <span class="highlight"><strong>LinkedQueue</strong></span>, que implementa <span class="highlight"><strong>Queue</strong></span>, ou seja, é uma fila encadeada.</li>
+            </ul>
+        </div>
+
+        <div class="uml-container">
+            <h4 class="uml-header">Arquivo de Teste - PrincipalEtapa4.java</h4>
+            <p>Implemente, em uma classe chamada <b>PrincipalEtapa4.java</b>, testes para validar as funcionalidades de <b>LinkedStack</b> e <b>LinkedQueue</b>:</p>
+            <ul>
+                <li><b>Teste 1:</b> Verificação de elementos em uma pilha (LinkedStack) com operações de empilhar, desempilhar e verificar o topo.</li>
+                <li><b>Teste 2:</b> Verificação de elementos em uma fila (LinkedQueue) com operações de enfileirar, desenfileirar e verificar o primeiro e último elemento.</li>
+            </ul>
+
+            <div class="console-container">
+                <div class="console-header">
+                    Código - PrincipalEtapa4.java
+                </div>
+                <div class="console-body">
+<pre style="color: #FFFFFF">
+
+        // Teste 1: Operações com Pilha (LinkedStack)
+        System.out.println("Teste 1: Contagem de Elementos na Pilha (LinkedStack)");
+        LinkedStack<Integer> stack = new LinkedStack<>();
+
+        // Verifica se a pilha está vazia
+        System.out.println("Pilha está vazia? " + stack.isEmpty());
+
+        // Empilhando elementos
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+        System.out.println("Elemento no topo da pilha: " + stack.top());
+
+        // Desempilhando um elemento
+        System.out.println("Desempilhando: " + stack.pop());
+        System.out.println("Número de elementos na pilha: " + stack.numElements());
+        System.out.println("---------------------------------------------------");
+
+        // Teste 2: Operações com Fila (LinkedQueue)
+        System.out.println("Teste 2: Verificação de Elementos na Fila (LinkedQueue)");
+        LinkedQueue<Integer> queue = new LinkedQueue<>();
+
+        // Verifica se a fila está vazia
+        System.out.println("Fila está vazia? " + queue.isEmpty());
+
+        // Enfileirando elementos
+        queue.enqueue(100);
+        queue.enqueue(200);
+        queue.enqueue(300);
+        System.out.println("Primeiro da fila: " + queue.front());
+
+        // Desenfileirando um elemento
+        System.out.println("Desenfileirando: " + queue.dequeue());
+        System.out.println("Número de elementos na fila: " + queue.numElements());
+
+        // Verificar último elemento (back)
+        System.out.println("Último da fila (back): " + queue.back());
+        System.out.println("---------------------------------------------------");
+
+</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="uml-container">
+            <h4 class="uml-header">Exemplo de Saída - Teste</h4>
+            <p>Abaixo, um exemplo de saída esperada ao rodar os testes:</p>
+
+            <div class="console-container">
+                <div class="console-header">
+                    Saída
+                </div>
+                <div class="console-body output">
+===========================================================================<br>
+         RELATÓRIO DE EXECUÇÃO - Etapa 4<br>
+===========================================================================<br>
+Teste 1: Contagem de Elementos na Pilha (LinkedStack)<br>
+Pilha está vazia? true<br>
+Elemento no topo da pilha: 30<br>
+Desempilhando: 30<br>
+Número de elementos na pilha: 2<br>
+---------------------------------------------------<br>
+Teste 2: Verificação de Elementos na Fila (LinkedQueue)<br>
+Fila está vazia? true<br>
+Primeiro da fila: 100<br>
+Desenfileirando: 100<br>
+Número de elementos na fila: 2<br>
+Último da fila (back): 300<br>
+---------------------------------------------------<br>
+                </div>
+            </div>
+        </div>
+
+        <!-- Diagrama de Classes -->
+        <div class="uml-container">
+            <h4 class="uml-header">Diagrama de Classes</h4>
+            <div class="uml-diagram">
+                <div class="mermaid">
+                    classDiagram
+                    class PrincipalEtapa4 {
+                        + main(String[] args)
+                    }
+
+                    class LinkedStack {
+                        + isEmpty() : boolean
+                        + isFull() : boolean
+                        + push(Object element) : void
+                        + pop() : Object
+                        + top() : Object
+                        + numElements() : int
+                    }
+
+                    class LinkedQueue {
+                        + isEmpty() : boolean
+                        + isFull() : boolean
+                        + enqueue(Object element) : void
+                        + dequeue() : Object
+                        + front() : Object
+                        + back() : Object
+                        + numElements() : int
+                    }
+
+                    class Node {
+                        - data : Object
+                        - nextNode : Node
+                        + Node(Object data, Node next)
+                        + getData() : Object
+                        + getNext() : Node
+                    }
+
+                    class Stack {
+                        + push(Object element) : void
+                        + pop() : Object
+                        + isEmpty() : boolean
+                    }
+
+                    class Queue {
+                        + enqueue(Object element) : void
+                        + dequeue() : Object
+                        + isEmpty() : boolean
+                    }
+
+                    class OverflowException {
+                        + OverflowException()
+                    }
+
+                    class UnderflowException {
+                        + UnderflowException()
+                    }
+
+                    LinkedStack ..> Node
+                    LinkedQueue ..> Node
+                    LinkedStack <|-- Stack
+                    LinkedQueue <|-- Queue
+                    LinkedStack ..> OverflowException
+                    LinkedStack ..> UnderflowException
+                    LinkedQueue ..> OverflowException
+                    LinkedQueue ..> UnderflowException
+                    PrincipalEtapa4 ..> LinkedStack
+                    PrincipalEtapa4 ..> LinkedQueue
+                </div>
+            </div>
+        </div>
+
+        <!-- Diagrama de Sequência -->
+        <div class="uml-container">
+            <h4 class="uml-header">Diagrama de Sequência - Testes Etapa 4</h4>
+            <div class="uml-diagram">
+                <div class="mermaid">
+                    sequenceDiagram
+                    participant Usuário
+                    participant PrincipalEtapa4
+                    participant LinkedStack
+                    participant LinkedQueue
+                    participant Node
+
+                    Usuário->>PrincipalEtapa4: Executa main()
+                    PrincipalEtapa4->>LinkedStack: push(10, 20, 30)
+                    LinkedStack->>Node: Criar nós
+                    PrincipalEtapa4->>LinkedStack: top(), pop()
+                    LinkedStack->>PrincipalEtapa4: Retorna valor do topo e remove
+
+                    PrincipalEtapa4->>LinkedQueue: enqueue(100, 200, 300)
+                    LinkedQueue->>Node: Criar nós
+                    PrincipalEtapa4->>LinkedQueue: front(), back(), dequeue()
+                    LinkedQueue->>PrincipalEtapa4: Retorna valores e remove
+                </div>
+            </div>
+        </div>
+
+        <!-- Descrição das Classes e Métodos -->
+        <div class="container">
+            <h2 class="text-center mb-4">Descrição das Classes e Métodos</h2>
+
+            <div class="card mb-3">
+                <div class="card-header bg-primary text-white icon-text">
+                    <i class="fas fa-code"></i> Classe PrincipalEtapa4
+                </div>
+                <div class="card-body">
+                    <p><strong>Descrição:</strong> Classe responsável por executar os testes das classes <code>LinkedStack</code> e <code>LinkedQueue</code>, contendo o método <code>main</code>.</p>
+                    <p><strong>Método principal (main):</strong></p>
+                    <ul>
+                        <li>Executa dois testes:</li>
+                        <ul>
+                            <li>Operações com pilha (empilhar, desempilhar, verificar topo).</li>
+                            <li>Operações com fila (enfileirar, desenfileirar, verificar primeiro e último elementos).</li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-header bg-success text-white icon-text">
+                    <i class="fas fa-layer-group"></i> Classe LinkedStack
+                </div>
+                <div class="card-body">
+                    <p><strong>Descrição:</strong> Implementa uma pilha dinâmica usando encadeamento.</p>
+                    <p><strong>Métodos:</strong></p>
+                    <ul>
+                        <li><code>isEmpty()</code>: Verifica se a pilha está vazia.</li>
+                        <li><code>isFull()</code>: Verifica se a pilha está cheia (não aplicável a listas encadeadas).</li>
+                        <li><code>push(E element)</code>: Adiciona um elemento ao topo da pilha.</li>
+                        <li><code>pop()</code>: Remove e retorna o elemento do topo da pilha.</li>
+                        <li><code>top()</code>: Retorna o elemento no topo da pilha sem removê-lo.</li>
+                        <li><code>numElements()</code>: Retorna o número de elementos na pilha.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-header bg-warning text-white icon-text">
+                    <i class="fas fa-layer-group"></i> Classe LinkedQueue
+                </div>
+                <div class="card-body">
+                    <p><strong>Descrição:</strong> Implementa uma fila dinâmica usando encadeamento.</p>
+                    <p><strong>Métodos:</strong></p>
+                    <ul>
+                        <li><code>isEmpty()</code>: Verifica se a fila está vazia.</li>
+                        <li><code>isFull()</code>: Verifica se a fila está cheia (não aplicável a listas encadeadas).</li>
+                        <li><code>enqueue(E element)</code>: Adiciona um elemento ao final da fila.</li>
+                        <li><code>dequeue()</code>: Remove e retorna o primeiro elemento da fila.</li>
+                        <li><code>front()</code>: Retorna o primeiro elemento da fila sem removê-lo.</li>
+                        <li><code>back()</code>: Retorna o último elemento da fila sem removê-lo.</li>
+                        <li><code>numElements()</code>: Retorna o número de elementos na fila.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-header bg-danger text-white icon-text">
+                    <i class="fas fa-exclamation-triangle"></i> Classes de Exceções
+                </div>
+                <div class="card-body">
+                    <p><strong>OverflowException:</strong> Exceção lançada quando uma operação tenta adicionar um elemento a uma pilha ou fila que já está cheia.</p>
+                    <p><strong>UnderflowException:</strong> Exceção lançada quando uma operação tenta remover um elemento de uma pilha ou fila que está vazia.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <h6>Universidade do Vale do Rio dos Sinos - UNISINOS | Bischoff, Vinicius</h6>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</body>
+</html>
